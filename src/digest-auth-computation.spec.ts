@@ -1,4 +1,11 @@
-import { generateHA1, generateHA2, generateResponse, getNonceFromMessageString, getRealmFromMessageString } from './digest-auth-computation';
+import {
+    generateClientNonce,
+    generateHA1,
+    generateHA2,
+    generateResponse,
+    getNonceFromMessageString,
+    getRealmFromMessageString
+} from './digest-auth-computation';
 
 describe('Digest Auth Computation', () => {
     describe('info extraction', () => {
@@ -73,5 +80,11 @@ describe('Digest Auth Computation', () => {
 
             expect(response).toBe('e3204bd2d254a00ce9b0b3cfc0f9460f');
         });
+    });
+
+    describe('generateClientNonce' ,() => {
+        it('is not empty', () => {
+            expect(generateClientNonce().trim().length).toBeGreaterThan(0);
+        })
     });
 });

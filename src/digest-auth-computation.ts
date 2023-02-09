@@ -39,6 +39,20 @@ export const generateResponse = (ha1: string, ha2: string, nonce: string, nonceC
     return md5Hex(`${ha1}:${nonce}:${paddedCount}:${cNonce}:${qop}:${ha2}`);
 };
 
+const generateAlphaNum = () => {
+    const category = crypto.randomInt(0, 2);
+    switch (category) {
+        // Numbers
+        case 0:
+            return String.fromCharCode(crypto.randomInt(48, 57));
+        case 1:
+            return String.fromCharCode(crypto.randomInt(65, 90));
+        case 2:
+            return String.fromCharCode(crypto.randomInt(97, 122))
+    }
+    throw new Error('Unexpected state reached.');
+}
+
 export const generateClientNonce = (): string => {
-    return '501eb5c18eea6d9a';
+    return new Array(16).fill(null).map(() => generateAlphaNum()).join('');
 };
