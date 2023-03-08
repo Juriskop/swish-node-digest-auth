@@ -4,7 +4,7 @@
   "description": "A SWISH compatible digest auth. While digest auth is standardized this implementation is only tested against SWISH and only supports one specification case (qop = auth; MD5 hash)",
   "main": "index",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && cp ./package.json ./dist/package.json && ./README.md ./dist/README.md",
     "test": "jest"
   },
   "repository": {
