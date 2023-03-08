@@ -1,6 +1,6 @@
 {
   "name": "@juriskop/swish-node-digest-auth",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A SWISH compatible digest auth. While digest auth is standardized this implementation is only tested against SWISH and only supports one specification case (qop = auth; MD5 hash)",
   "main": "index",
   "scripts": {
